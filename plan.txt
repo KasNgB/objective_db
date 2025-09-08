@@ -1,0 +1,30 @@
+Prosjekt:
+
+	INF250:
+		Gjenkjenne et fast objekt fra forskjellige settinger
+	
+	INF230:
+		Lagre relevant data
+
+Grunnplan:
+	
+	INF250: 
+		- Kjenne igjen farge
+		- Kjenne igjen form
+		- Kombinere
+
+	INF230:
+		- Lage database 
+			- GitHub 
+			- Felles nettverk
+
+Gjøremål:
+	Uke 1:
+		Sette opp prosjekt GitHub: Begge
+		Finne ut av sql service: S
+		Lære om Python biblioteker: K 
+
+
+Status:
+	Uke 1:
+		
