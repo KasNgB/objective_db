@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<annotation>
+  <filename>00674.jpg</filename>
+  <object_num>1</object_num>
+  <size>
+    <width>268</width>
+    <height>268</height>
+  </size>
+  <object>
+    <name>apple</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>41</xmin>
+      <ymin>22</ymin>
+      <xmax>268</xmax>
+      <ymax>256</ymax>
+    </bndbox>
+  </object>
+</annotation>
