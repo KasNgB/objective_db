@@ -6,6 +6,9 @@ dist/
 wheels/
 *.egg-info
 
+# Ignore large video files
+runs/predict/*
+
 # Jupyter Notebook checkpoints
 classifier/yolo/images/val/*.npy
 classifier/yolo/images/train/*.npy
