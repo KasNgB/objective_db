@@ -1,6 +1,5 @@
-path: yolo
+path: /home/brouzie/workspace/school/objective_db/classifier/yolo
 train: images/train
 val: images/val
-
 names:
   0: apple

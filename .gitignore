@@ -6,5 +6,25 @@ dist/
 wheels/
 *.egg-info
 
+# Jupyter Notebook checkpoints
+classifier/yolo/images/val/*.npy
+classifier/yolo/images/train/*.npy
+
+# …but keep the useful bits:
+!runs/**/results.csv
+!runs/**/args.yaml
+!runs/**/hyp.yaml
+!runs/**/confusion_matrix.png
+!runs/**/PR_curve.png
+!runs/**/F1_curve.png
+!runs/**/labels.jpg
+!runs/**/weights/
+!runs/**/weights/best.pt   # keep final model
+# (Optionally ignore last.pt if you don’t need it)
+runs/**/weights/last.pt
+
+# A place for a few handpicked example images:
+!runs/**/samples/**
+
 # Virtual environments
 .venv

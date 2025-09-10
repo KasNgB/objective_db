@@ -1,7 +1,13 @@
+from pathlib import Path
 from ultralytics import YOLO
 
-# Load a pretrained YOLO11n model
-model = YOLO("yolo11n.pt")
+HERE = Path(__file__).parent
+data_yaml = HERE / "apples.yaml"              # lives next to train.py
+weights = HERE / "yolo11n.pt"
 
-# Train the model on COCO8
-results = model.train(data="apples.yaml", epochs=100, imgsz=640)
+model = YOLO(weights)
+results = model.train(
+    data=str(data_yaml),
+    epochs=100, imgsz=512, device=0, batch=32, workers=2,
+    deterministic=True, cache='disk'
+)
