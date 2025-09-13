@@ -1,4 +1,5 @@
 import gi
+from yolo_analysis import yolo_analysis
 
 
 gi.require_version("Gtk", "3.0")
@@ -15,6 +16,8 @@ class GridWindow(Gtk.Window):
         super().__init__(title="Recognize apples")
 
         self.adjustment = Gtk.Adjustment(0.5, 0, 1, 0.01)
+        self.selected_file = None
+        self.selected_conf = None
 
 
         self.file_chooser_button = Gtk.FileChooserButton(
@@ -28,12 +31,12 @@ class GridWindow(Gtk.Window):
 
         self.scale = Gtk.Scale(orientation=0, adjustment=self.adjustment)
         self.scale.set_digits(2)
-        self.scale.connect("value-changed", self.on_scale_input)
 
         self.spinbutton = Gtk.SpinButton()
         self.spinbutton.set_adjustment(self.adjustment)
         self.spinbutton.set_digits(2)
-        self.spinbutton.connect("value-changed", self.on_spinbutton_input)
+
+        self.adjustment.connect("value-changed", self.on_adjustment_input)
 
 
         self.grid = Gtk.Grid()
@@ -48,19 +51,19 @@ class GridWindow(Gtk.Window):
         self.add(self.grid)
 
     def on_file_open(self, widget):
-        filename = widget.get_filename()
-        print(filename)
+        self.selected_file = widget.get_filename()
+        print(f"file: {self.selected_file}")
 
     def on_button_run_input(self, widget):
-        print("run")
+        if self.selected_file == None:
+            print("No file selected")
+            return
+        else:
+            yolo_analysis(self.selected_file, self.selected_conf)
 
-    def on_scale_input(self, scale):
-        value = scale.get_value()
-        print(value)
-
-    def on_spinbutton_input(self, spin):
-        value = spin.get_value()
-        print(value)
+    def on_adjustment_input(self, spin):
+        self.selected_conf = self.adjustment.get_value()
+        print(f"conf: {self.selected_conf}")
 
 win = GridWindow()
 
