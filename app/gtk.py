@@ -7,49 +7,65 @@ from gi.repository import Gtk
 
 
 
-class MyWindow(Gtk.Window):
+class GridWindow(Gtk.Window):
 
     def __init__(self):
 
-        super().__init__(title="Hello World")
+
+        super().__init__(title="Recognize apples")
+
+        self.adjustment = Gtk.Adjustment(0.5, 0, 1, 0.01)
 
 
-        self.box = Gtk.Box(spacing=6)
+        self.file_chooser_button = Gtk.FileChooserButton(
+        title="Select a File",
+        action=Gtk.FileChooserAction.OPEN
+        )
+        self.file_chooser_button.connect("file-set", self.on_file_open)
 
-        self.add(self.box)
+        self.button_run = Gtk.Button(label="run")
+        self.button_run.connect("clicked", self.on_button_run_input)
 
+        self.scale = Gtk.Scale(orientation=0, adjustment=self.adjustment)
+        self.scale.set_digits(2)
+        self.scale.connect("value-changed", self.on_scale_input)
 
-        self.button1 = Gtk.Button(label="Hello")
-
-        self.button1.connect("clicked", self.on_button1_clicked)
-
-        self.box.pack_start(self.button1, True, True, 0)
-
-
-        self.button2 = Gtk.Button(label="Goodbye")
-
-        self.button2.connect("clicked", self.on_button2_clicked)
-
-        self.box.pack_start(self.button2, True, True, 0)
-
-
-    def on_button1_clicked(self, widget):
-
-        print("Hello")
+        self.spinbutton = Gtk.SpinButton()
+        self.spinbutton.set_adjustment(self.adjustment)
+        self.spinbutton.set_digits(2)
+        self.spinbutton.connect("value-changed", self.on_spinbutton_input)
 
 
-    def on_button2_clicked(self, widget):
+        self.grid = Gtk.Grid()
 
-        print("Goodbye")
+        self.grid.add(self.file_chooser_button)
+        self.grid.attach(self.button_run, 1, 0, 4, 1)
+        self.grid.attach(self.scale, 0, 1, 2, 1)
+        self.grid.attach_next_to(self.spinbutton, self.scale, 1, 2, 1)
+        self.grid.set_row_spacing(10)
+        self.grid.set_column_spacing(10)
 
+        self.add(self.grid)
 
+    def on_file_open(self, widget):
+        filename = widget.get_filename()
+        print(filename)
 
-win = MyWindow()
+    def on_button_run_input(self, widget):
+        print("run")
+
+    def on_scale_input(self, scale):
+        value = scale.get_value()
+        print(value)
+
+    def on_spinbutton_input(self, spin):
+        value = spin.get_value()
+        print(value)
+
+win = GridWindow()
 
 win.connect("destroy", Gtk.main_quit)
 
 win.show_all()
 
 Gtk.main()
-
-
