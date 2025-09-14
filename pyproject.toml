@@ -10,5 +10,6 @@ dependencies = [
     "pycairo>=1.28.0",
     "pygobject>=3.54.0",
     "scikit-image>=0.25.2",
+    "sqlalchemy>=2.0.43",
     "ultralytics>=8.3.197",
 ]
