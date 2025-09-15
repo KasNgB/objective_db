@@ -27,4 +27,32 @@ Gjøremål:
 
 Status:
 	Uke 1:
-		
+		Satt opp prosjekt på GitHub
+		Lært Yolo til å kjenne igjen epler
+		Lagd tilnærmet GUI for å kjøre program
+		Lagd enkelt skjema for SQLite
+
+Gjøremål  
+	Uke 2:
+		Sette opp ny yolo analyse
+		Freestyle etter dette
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Trent Yolo til å kjenne igjen epler		
