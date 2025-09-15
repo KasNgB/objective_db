@@ -5,7 +5,8 @@ build/
 dist/
 wheels/
 *.egg-info
-.avi
+*.avi
+*.npy
 
 # Ignore large video files
 runs/detect/predictions/*
