@@ -5,7 +5,7 @@ model = YOLO("yolo11s.pt")
 
 # Train the model on COCO8
 results = model.train(
-    data="data.yaml",
+    data="human_detect/data.yaml",
     epochs=100,
     imgsz=512,
     batch=16,

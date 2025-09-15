@@ -1,3 +1,5 @@
+path: /home/brouzie/workspace/school/objective_db/human_detect
+
 train: ../train/images
 val: ../valid/images
 test: ../test/images

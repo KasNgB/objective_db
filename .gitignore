@@ -7,6 +7,7 @@ wheels/
 *.egg-info
 *.avi
 *.npy
+*.mp4
 
 # Ignore large video files
 runs/detect/predictions/*

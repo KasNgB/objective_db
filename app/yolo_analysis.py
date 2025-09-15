@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def yolo_analysis(file_path, conf):
-    weights = Path(__file__).parent.parent / "runs/detect/train/weights/best.pt"
+    weights = Path(__file__).parent.parent / "runs/detect/train3/weights/best.pt"
     file = file_path
 
     model = YOLO(weights)

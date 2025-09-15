@@ -17,7 +17,7 @@ class GridWindow(Gtk.Window):
 
         self.adjustment = Gtk.Adjustment(0.5, 0, 1, 0.01)
         self.selected_file = None
-        self.selected_conf = None
+        self.selected_conf = 0.5
 
 
         self.file_chooser_button = Gtk.FileChooserButton(
