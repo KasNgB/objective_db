@@ -55,12 +55,15 @@ class GridWindow(Gtk.Window):
         print(f"file: {self.selected_file}")
 
     def on_button_run_input(self, widget):
-        if self.selected_file == None:
-            print("No file selected")
-            return
-        else:
-            yolo_analysis(self.selected_file, self.selected_conf)
-
+        try:
+            if self.selected_file == None:
+                print("No file selected")
+                return
+            else:
+                yolo_analysis(self.selected_file, self.selected_conf)
+        except FileNotFoundError:
+            print("You need to select an image")
+ 
     def on_adjustment_input(self, spin):
         self.selected_conf = self.adjustment.get_value()
         print(f"conf: {self.selected_conf}")
