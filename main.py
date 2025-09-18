@@ -20,7 +20,7 @@ def main():
     args = parse_args()
 
     # Load OpenVINO-exported model. Passing the export folder or .xml both work.
-    model = YOLO("./openvino_model")
+    model = YOLO("./best_openvino_model")
 
     # If you checked the “GStreamer” box, pass the string as-is; otherwise OpenCV/ffmpeg will consume rtsp/http URL.
     source = args.source
