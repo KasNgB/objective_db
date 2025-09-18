@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def yolo_analysis(file_path, conf):
-    weights = Path(__file__).parent.parent / "runs/detect/train3/weights/best.pt"
+    weights = Path(__file__).parent.parent / "best.pt"
     file = file_path
 
     model = YOLO(weights)
@@ -15,6 +15,6 @@ def yolo_analysis(file_path, conf):
         vid_stride=2,    # skip frames for speed (2–5 is fine)
         save=True,       # writes ONE annotated .mp4
         save_frames=False,  # ensure it doesn’t dump per-frame JPGs
-        project=Path(__file__).parent.parent / "runs/detect/predictions"
+        project=Path(__file__).parent.parent / "predictions"
         )
 
