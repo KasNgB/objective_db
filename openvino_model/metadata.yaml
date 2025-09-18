@@ -1,0 +1,31 @@
+description: Ultralytics YOLO11s model trained on human_detect/data.yaml
+author: Ultralytics
+date: '2025-09-17T10:55:15.917651'
+version: 8.3.201
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 512
+- 512
+names:
+  0: Person
+  1: Bike
+  2: Bolan-Bike
+  3: Bus-Bike
+  4: Car-Bike
+  5: Emergency Vehicles-Bike
+  6: MC-Bike
+  7: Person-Bike
+  8: Truck-Bike
+  9: Van-Bike
+args:
+  batch: 1
+  fraction: 1.0
+  half: true
+  int8: false
+  dynamic: false
+  nms: false
+channels: 3
