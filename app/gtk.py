@@ -16,15 +16,12 @@ class GridWindow(Gtk.Window):
         super().__init__(title="Recognize apples")
 
         self.adjustment = Gtk.Adjustment(0.5, 0, 1, 0.01)
-        self.selected_file = None
+        self.selected_ip = None
         self.selected_conf = 0.5
 
 
-        self.file_chooser_button = Gtk.FileChooserButton(
-        title="Select a File",
-        action=Gtk.FileChooserAction.OPEN
-        )
-        self.file_chooser_button.connect("file-set", self.on_file_open)
+        self.enter_ip = Gtk.Entry()
+        self.enter_ip.connect("changed", self.on_enter_ip)
 
         self.button_run = Gtk.Button(label="run")
         self.button_run.connect("clicked", self.on_button_run_input)
@@ -41,7 +38,7 @@ class GridWindow(Gtk.Window):
 
         self.grid = Gtk.Grid()
 
-        self.grid.add(self.file_chooser_button)
+        self.grid.add(self.enter_ip)
         self.grid.attach(self.button_run, 1, 0, 4, 1)
         self.grid.attach(self.scale, 0, 1, 2, 1)
         self.grid.attach_next_to(self.spinbutton, self.scale, 1, 2, 1)
@@ -50,13 +47,13 @@ class GridWindow(Gtk.Window):
 
         self.add(self.grid)
 
-    def on_file_open(self, widget):
-        self.selected_file = widget.get_filename()
-        print(f"file: {self.selected_file}")
+    def on_enter_ip(self, widget):
+        self.selected_ip = self.enter_ip.get_text()
+        print(f"ip: {self.selected_ip}")
 
     def on_button_run_input(self, widget):
         try:
-            if self.selected_file == None:
+            if self.selected_ip == None:
                 print("No file selected")
                 return
             else:
