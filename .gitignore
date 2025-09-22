@@ -10,7 +10,7 @@ wheels/
 *.mp4
 
 # Ignore large video files
-runs/detect/predictions/*
+runs/
 
 # Jupyter Notebook checkpoints
 classifier/yolo/images/val/*.npy
