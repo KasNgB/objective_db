@@ -24,7 +24,6 @@ Gjøremål:
 		Finne ut av sql service: S
 		Lære om Python biblioteker: K 
 
-
 Status:
 	Uke 1:
 		Satt opp prosjekt på GitHub
@@ -32,11 +31,35 @@ Status:
 		Lagd tilnærmet GUI for å kjøre program
 		Lagd enkelt skjema for SQLite
 
+
 Gjøremål  
 	Uke 2:
 		Sette opp ny yolo analyse
 		Freestyle etter dette
 
+Status:
+	Uke 2:
+		Fått yolo til å gjenkjenne mennesker, sykler ish
+		Lagd telefon holder til bilen
+		Analyserer en live stream
+		Innført openvino
+		Stress testet analysen
+		
+
+Gjøremål:
+	Uke 3:
+		Lage ferdig gtk for å kjøre programmet
+		Lagre testruns i database
+		Prøve å implementere logging under en stream 
+
+Status:
+	Uke 3:
+		Ingenting
+
+Gjøremål:
+	Uke 4:
+		Lage ferdig gtk for å kjøre programmet
+		Prøve å implementere logging under en stream 
 
 
 
@@ -54,5 +77,3 @@ Gjøremål
 
 
 
-
-		Trent Yolo til å kjenne igjen epler		
