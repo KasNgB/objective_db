@@ -1,7 +1,9 @@
 import argparse
+import datetime
 import time
 import cv2
 from ultralytics import YOLO
+from sql.insert_test import insert_run
 
 
 def parse_args():
@@ -75,4 +77,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    start = datetime.datetime.now()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nInterrupted - shutting down")
+    finally:
+        end = datetime.datetime.now()
+        insert_run(start_time=start, end_time=end)

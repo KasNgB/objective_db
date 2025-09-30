@@ -1,18 +1,22 @@
-from db import SessionLocal
-from models import Image
+from .db import SessionLocal
+from .models import Runs
 
-session = SessionLocal()
-try:
-    # INSERT
-    img = Image(filename="example.jpg", width=640, height=480)
-    session.add(img)
-    session.commit()
-    session.refresh(img)
-    print("Inserted image id:", img.image_ID)
+def insert_run(start_time, end_time, detected=0):
+    session = SessionLocal()
+    try:
+        # INSERT
+        run = Runs(detected=detected, start_time=str(start_time), end_time=str(end_time))
+        session.add(run)
+        session.commit()
+        session.refresh(run)
+        print("Inserted run id:", run.id)
+        print("Inserted detected humans:", run.detected)
+        print("Inserted run start time", run.start_time)
+        print("Inserted run end time:", run.end_time)
 
-    # QUERY
-    rows = session.query(Image).all()
-    for r in rows:
-        print(r.image_ID, r.filename, r.width, r.height, r.created_at)
-finally:
-    session.close()
+        # QUERY
+        rows = session.query(Runs).all()
+        for r in rows:
+            print(r.id, r.detected, r.start_time, r.end_time)
+    finally:
+        session.close()
