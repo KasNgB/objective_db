@@ -6,7 +6,7 @@ import os
 os.makedirs("sql", exist_ok=True)
 
 # SQLite DB file in the sql directory (relative path)
-DB_URL = "sqlite:///./sql/app.db"
+DB_URL = "sqlite:///./sql/runs.db"
 
 # echo=True prints SQL statements (handy while learning)
 engine = create_engine(DB_URL, echo=True, future=True)
